@@ -99,7 +99,7 @@ Write a function named checkValues that takes in an object and a value and retur
 const checkValues = (obj, value) => {
   // Solution code here...
   let newArr3 = Object.values(obj);
-  if(newArr3 === value){
+  if(newArr3 == value){
     return true;
   }else{
     return false;
@@ -129,8 +129,13 @@ HR has asked you to change the data to make it easier to print so that it looks 
 const updateNumbers = (obj) => {
   // Solution code here...
   let newArr4 = Object.entries(obj);
-  return newArr4;
+  let merge=[];
+  newArr4.forEach(item=>{
+    merge.push(item.join(': '));
+  })
+  return merge;
 };
+
 
 
 
@@ -165,7 +170,13 @@ hasChildrenValues(characters, 'Sansa') will return false
 
 const hasChildrenValues = (arr, character) => {
   // Solution code here...
-
+  let result = false;
+  arr.forEach(item => {
+    if (item.name === character) {
+      result = item.children.length > 0;
+    }
+  })
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
